@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Direitos Humanos — Educação em Direitos Humanos</title>
+
+  <!-- Google Fonts: Raleway (títulos) + Poppins (textos) -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Raleway:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="" crossorigin="anonymous" />
+
+  <style>
+    :root{
+      --primary: #0d47a1; /* azul forte */
+      --accent: #00a8ff;
+      --muted: #f1f6ff;
+      --card: #ffffff;
+      --radius: 16px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:'Poppins',system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial}
+    body{background:linear-gradient(180deg,var(--muted),#ffffff);color:#222;line-height:1.6}
+
+    /* LOGO GRANDE NO TOPO */
+    .site-logo{
+      display:block;margin:28px auto 6px;max-width:230px;width:100%;border-radius:18px;filter:drop-shadow(0 6px 18px rgba(13,71,161,0.18));
+    }
+
+    /* NAVBAR */
+    .nav-wrap{background:transparent;padding:10px 0;box-shadow:0 6px 18px rgba(13,71,161,0.04)}
+    .nav{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:0 20px}
+
+    .nav .menu{display:flex;gap:22px;align-items:center}
+    .nav .menu a{color:var(--primary);text-decoration:none;font-weight:600;font-family:'Raleway';padding:8px 10px;border-radius:10px;transition:all .18s}
+    .nav .menu a:hover{background:rgba(13,71,161,0.06);transform:translateY(-2px)}
+
+    .search{display:flex;align-items:center;background:#fff;padding:6px;border-radius:999px;border:1px solid rgba(13,71,161,0.08);box-shadow:0 6px 18px rgba(13,71,161,0.04)}
+    .search input{border:0;outline:0;padding:8px 10px;width:220px;font-size:14px}
+    .search button{background:var(--primary);color:#fff;border:0;padding:8px 12px;border-radius:999px;cursor:pointer;font-weight:600}
+
+    /* BANNER */
+    .banner{max-height:420px;overflow:hidden;border-radius:14px;margin:20px auto 10px;max-width:1200px}
+    .banner img{width:100%;height:auto;display:block;object-fit:cover}
+
+    /* HERO TITLE over banner (overlay) */
+    .hero-cta{max-width:1200px;margin:-110px auto 40px;padding:0 20px;display:flex;align-items:center;justify-content:center}
+    .hero-card{background:linear-gradient(180deg,rgba(255,255,255,0.95),#ffffff);padding:30px;border-radius:16px;box-shadow:0 12px 40px rgba(13,71,161,0.12);width:100%;max-width:1000px}
+    .hero-card h1{font-family:'Raleway';color:var(--primary);font-size:36px;margin:0 0 10px}
+    .hero-card p{margin:0 0 18px;color:#333;font-size:16px}
+    .hero-quick{display:flex;gap:12px;flex-wrap:wrap}
+    .pill{background:rgba(0,168,255,0.08);color:var(--primary);padding:8px 12px;border-radius:999px;font-weight:600}
+
+    /* CONTENT AREA */
+    .container{max-width:1100px;margin:40px auto;padding:0 20px}
+    .grid{display:grid;grid-template-columns:1fr 340px;gap:26px}
+
+    /* main article */
+    article.card{background:var(--card);padding:28px;border-radius:14px;box-shadow:0 10px 30px rgba(13,71,161,0.06)}
+    article.card h2{font-family:'Raleway';color:var(--primary);font-size:22px;margin-top:14px;margin-bottom:10px}
+    article.card h3{font-family:'Raleway';color:#09407a;margin-top:22px;margin-bottom:8px}
+    article.card p{color:#333}
+    article.card ul{background:#f6fbff;padding:14px;border-radius:10px;margin:10px 0}
+    article.card li{margin:10px 0}
+
+    /* sidebar */
+    aside{position:relative}
+    .toc{background:linear-gradient(180deg,#ffffff, #f7fbff);padding:18px;border-radius:12px;box-shadow:0 8px 20px rgba(13,71,161,0.04)}
+    .toc h4{font-family:'Raleway';color:var(--primary);margin:0 0 10px}
+    .toc a{display:block;color:#135; text-decoration:none;padding:8px 6px;border-radius:8px;margin-bottom:6px;font-size:14px}
+    .toc a:hover{background:rgba(0,168,255,0.07)}
+
+    /* Highlight quote */
+    .callout{background:linear-gradient(90deg,rgba(13,71,161,0.06),rgba(0,168,255,0.04));padding:18px;border-radius:12px;margin:18px 0;font-style:italic;color:#05366a}
+
+    /* CTA footer */
+    .cta{margin:28px 0;padding:22px;border-radius:12px;background:linear-gradient(90deg,var(--accent),var(--primary));color:#fff;text-align:center;font-weight:700}
+
+    /* GIF final */
+    .gif-wrap{display:flex;justify-content:center;margin:36px 0}
+    .gif-wrap img{width:220px;border-radius:12px;box-shadow:0 10px 30px rgba(13,71,161,0.12)}
+
+    /* responsive */
+    @media (max-width:980px){.grid{grid-template-columns:1fr}.nav .menu{display:none}.search input{width:120px}.hero-card h1{font-size:28px}}
+    @media (max-width:520px){.hero-card{padding:18px}.search input{width:90px}}
+
+    audio {
+      width: 100%;
+      border-radius: 12px; /* arredonda o próprio player */
+      background-color: #d9d9d9; /* cinza */
+    }
+
+
+    .audio-box {
+      background-color: #d9d9d9; /* cinza médio */
+      padding: 20px;
+      border-radius: 20px; /* borda arredondada */
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      width: 700px;
+      text-align: center;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- LOGO (grande no topo) -->
+  <img src="loguinho.png" alt="Logo" class="site-logo" />
+
+  <!-- NAVBAR com menu + pesquisa (abaixo do logo) -->
+  <div class="nav-wrap">
+    <nav class="nav">
+      <div class="menu">
+        <a href="#inicio">Início</a>
+        <a href="#direitos">Direitos</a>
+        <a href="#historia">História</a>
+        <a href="#contato">Contato</a>
+      </div>
+
+      <div class="search">
+        <input type="search" placeholder="Pesquisar..." aria-label="Pesquisar" />
+        <button aria-label="Buscar"><i class="fa-solid fa-magnifying-glass"></i></button>
+      </div>
+    </nav>
+  </div>
+
+  <!-- BANNER -->
+  <div class="banner">
+    <img src="direitoshmns.png" alt="Banner" />
+  </div>
+
+  <!-- HERO CARD sobre o banner -->
+  <div class="hero-cta">
+    <div class="hero-card">
+      <h1>Educação em Direitos Humanos — Formando Corações e Consciências</h1>
+      <p>Uma jornada de aprendizagem que transforma atitudes, fortalece democracias e garante dignidade. Explore princípios, práticas e caminhos para um futuro mais justo.</p>
+      <div class="hero-quick">
+        <div class="pill">Princípios</div>
+        <div class="pill">Práticas</div>
+        <div class="pill">Desafios</div>
+        <div class="pill">Futuro</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main class="container">
+    <div class="grid">
+
+      <!-- ARTIGO PRINCIPAL -->
+      <article class="card" id="inicio">
+
+        <h2>O que é Educação em Direitos Humanos?</h2>
+        <p>A Educação em Direitos Humanos (EDH) é um processo educativo que visa desenvolver o conhecimento, os valores e as habilidades necessários para que indivíduos respeitem os direitos humanos, promovam a dignidade humana e atuem na construção de sociedades justas e inclusivas. Vai além da teoria: busca a prática cotidiana do respeito e da solidariedade.</p>
+
+        <div class="callout">“Ensinar direitos humanos é ensinar a viver em comunidade — com responsabilidade, respeito e empatia.”</div>
+
+        <h3>Princípios e Fundamentos</h3>
+        <p>As bases da EDH incluem a universalidade, indivisibilidade, interdependência, igualdade e a participação social. São princípios que orientam ações pedagógicas e políticas públicas em prol da dignidade humana.</p>
+
+        <h3>Objetivos</h3>
+        <ul>
+          <li>Promover a dignidade humana.</li>
+          <li>Estimular a empatia e o pensamento crítico.</li>
+          <li>Fortalecer a cidadania e a participação social.</li>
+          <li>Prevenir a discriminação e a violência.</li>
+        </ul>
+
+        <h3>Educação em Direitos Humanos na Prática</h3>
+        <p>Na escola e na comunidade, a EDH ocorre através de projetos interdisciplinares, debates, oficinas, atividades artísticas, intervenções sociais e campanhas de conscientização. A metodologia privilegia a participação, a escuta ativa e o protagonismo dos estudantes.</p>
+
+        <h3>Desafios</h3>
+        <p>Os principais desafios são a desinformação, a falta de formação docente adequada, as desigualdades estruturais e a resistência sociocultural. Superá-los exige políticas públicas, investimentos e parcerias locais.</p>
+
+        <h3>Inter-relação entre Direitos Humanos e Educação</h3>
+        <p>Educação e direitos humanos se reforçam mutuamente: a educação qualifica o exercício da cidadania e os direitos humanos asseguram o acesso à educação de qualidade.</p>
+
+        <h3>Contexto Global e Nacional</h3>
+        <p>Globalmente, organismos como a ONU e a UNESCO promovem políticas de EDH. No Brasil, a temática está presente em diretrizes curriculares e iniciativas que buscam inserir a cultura de direitos humanos nas escolas.</p>
+
+        <h3>Práticas Pedagógicas e Estratégias</h3>
+        <p>Apostas pedagógicas incluem aprendizagem ativa, estudos de caso, projetos comunitários, uso das tecnologias para ampliar o alcance e metodologias que valorizam diversidade.</p>
+
+        <h3>Importância para as Futuras Gerações</h3>
+        <p>Educar em direitos humanos é semear respeito, responsabilidade e solidariedade — condições essenciais para que as próximas gerações vivam em sociedades mais justas.</p>
+
+        <h3>Desafios Contínuos e Caminhos para o Futuro</h3>
+        <p>O futuro exige ampliar políticas públicas, formar educadores, democratizar o acesso e articular educação formal e não formal para enfrentar desigualdades e fortalecer culturas de paz.</p>
+
+        <h3>Conclusão</h3>
+        <p>A Educação em Direitos Humanos é um investimento no presente e no futuro. Ao transformar práticas educativas, construímos sociedades mais solidárias, inclusivas e humanas.</p>
+
+        <div class="cta">Quer transformar sua escola ou comunidade? Comece hoje: compartilhe, dialogue e promova ações concretas.</div>
+
+      </article>
+
+      <!-- SIDEBAR -->
+      <aside>
+        <div class="toc">
+          <h4>Conteúdo Rápido</h4>
+          <a href="#inicio">O que é EDH?</a>
+          <a href="#">Princípios</a>
+          <a href="#">Objetivos</a>
+          <a href="#">Práticas</a>
+          <a href="#historia">Contexto</a>
+          <a href="#contato">Contato</a>
+        </div>
+
+        <div style="height:18px"></div>
+
+        <div class="toc">
+          <h4>Destaques</h4>
+          <p style="margin:0 0 8px;font-size:14px;color:#123">Artigos, projetos e materiais pedagógicos.</p>
+          <a href="#">Material para professores</a>
+          <a href="#">Projetos estudantis</a>
+        </div>
+      </aside>
+
+    </div>
+    <div class="audio-box">
+    <audio controls>
+    <source src="direitoshumanos.mp3" type="audio/mpeg" />
+    <source src="audio.ogg" type="audio/ogg" />
+    Seu navegador não suporta o elemento de áudio.
+  </audio>
+</div>
+    <!-- GIF final -->
+    <div class="gif-wrap">
+      <img src="gif.gif" alt="Gif" />
+    </div>
+
+  </main>
+
+  <footer style="text-align:center;padding:22px 10px;color:#06284a;background:linear-gradient(90deg,rgba(13,71,161,0.06),transparent);">
+    © 2025 Direitos Humanos
+  </footer>
+
+</body>
+</html>
